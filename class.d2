@@ -10,5 +10,16 @@ Task {
 TaskRepository
 
 MainController {
+    shape : class
+
+    -taskService
+    list()
     
+}
+
+TaskService {
+    shape : class
+
+    -taskRepository
+    getList()
 }

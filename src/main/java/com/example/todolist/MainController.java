@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class MainController {
 
-    private final TaskRepository taskRepository;
+    private final TaskService taskService;
 
     @GetMapping("/")
     public String index() {
@@ -21,7 +21,8 @@ public class MainController {
 
     @GetMapping("/list")
     public String list(Model model) {
-        List<Task> taskList = this.taskRepository.findAll(); 
+
+        List<Task> taskList = this.taskService.getList(); 
         model.addAttribute("taskList", taskList);
         return "list";
     }

@@ -3,10 +3,13 @@ getrequest: {
 
   th: Thymeleaf
   con: MainController
+  ser: TaskService
   re: TaskRepository
   get(list): {
-    con -> re: findAll()
-    re -> con: taskList
+    con -> ser: getList()
+    ser -> re : findAll()
+    re -> ser 
+    ser -> con: taskList
     con -> th: model+taskList
   }
 }
