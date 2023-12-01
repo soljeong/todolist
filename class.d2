@@ -7,13 +7,18 @@ Task {
     -createdDate
 }
 
-TaskRepository
+TaskRepository {
+    shape : class
+
+    findAll()
+}
 
 MainController {
     shape : class
 
     -taskService
     list()
+    creatTask()
     
 }
 
@@ -22,4 +27,5 @@ TaskService {
 
     -taskRepository
     getList()
+    create()
 }

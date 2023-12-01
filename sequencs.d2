@@ -12,4 +12,8 @@ getrequest: {
     ser -> con: taskList
     con -> th: model+taskList
   }
+  post(create):{
+    con -> ser : createTask()
+    ser -> re : create()
+  }
 }

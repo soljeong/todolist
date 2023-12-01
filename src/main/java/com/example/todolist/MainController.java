@@ -7,6 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RequiredArgsConstructor // final이 붙은 속성을 포함하는 생성자를 자동으로 생성
 @Controller
@@ -26,5 +29,13 @@ public class MainController {
         model.addAttribute("taskList", taskList);
         return "list";
     }
+
+    @PostMapping(value="/create")
+    public String createTask(@RequestParam String item) {
+
+        this.taskService.create(item);
+        return "redirect:/list";
+    }
+    
 
 }
