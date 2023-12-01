@@ -1,0 +1,12 @@
+getrequest: {
+  shape: sequence_diagram
+
+  th: Thymeleaf
+  con: MainController
+  re: TaskRepository
+  get(list): {
+    con -> re: findAll()
+    re -> con: taskList
+    con -> th: model+taskList
+  }
+}

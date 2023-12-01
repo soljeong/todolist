@@ -23,7 +23,7 @@ public class Task {
     private String item;
 
     @Column(columnDefinition = "BOOLEAN")
-    private boolean status;
+    private boolean status = false;
 
     private LocalDateTime createdDate;
 
