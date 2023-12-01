@@ -14,6 +14,17 @@
 - <http://localhost:8080/h2-console> 콘솔 접속
 - JPA
 
+## Entity
+
+### task
+
+|속성명|설명|
+|---|---|
+|id|고유 번호|
+|item|할일|
+|status|완료여부|
+|create_date|작성일시|
+
 ## mapping
 
 - MainController
