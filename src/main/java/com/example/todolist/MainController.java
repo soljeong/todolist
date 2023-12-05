@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @RequiredArgsConstructor // final이 붙은 속성을 포함하는 생성자를 자동으로 생성
 @Controller
 public class MainController {
@@ -25,24 +24,27 @@ public class MainController {
 
     @GetMapping("/list")
     public String list(Model model) {
-
-        List<Task> taskList = this.taskService.getList(); 
+        List<Task> taskList = this.taskService.getList();
         model.addAttribute("taskList", taskList);
         return "list";
     }
 
-    @PostMapping(value="/create")
+    @PostMapping(value = "/create")
     public String createTask(@RequestParam String item) {
-
         this.taskService.create(item);
         return "redirect:/list";
     }
-    
+
     @GetMapping("/modify/{id}")
-    public String modifyTask(@PathVariable Integer id){
+    public String modifyTask(@PathVariable Integer id) {
         this.taskService.modify(id);
         return "redirect:/list";
     }
-    
+
+    @GetMapping("/delete/{id}")
+    public String deleteTask(@PathVariable Integer id) {
+        this.taskService.delete(id);
+        return "redirect:/list";
+    }
 
 }

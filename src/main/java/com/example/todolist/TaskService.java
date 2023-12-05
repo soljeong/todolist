@@ -3,7 +3,6 @@ package com.example.todolist;
 import java.util.List;
 import java.time.LocalDateTime;
 
-
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -29,6 +28,10 @@ public class TaskService {
         Task task = this.taskRepository.findById(id).orElseThrow();
         task.setStatus(true);
         this.taskRepository.save(task);
+    }
+
+    public void delete(Integer id){
+        this.taskRepository.deleteById(id);
     }
 
 }
