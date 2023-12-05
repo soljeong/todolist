@@ -28,3 +28,6 @@
 ## mapping
 
 - MainController
+
+
+![Alt text](sequencs.svg)
