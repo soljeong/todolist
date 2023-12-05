@@ -1,18 +1,18 @@
-getrequest: {
+Todolist: {
   shape: sequence_diagram
 
   th: Thymeleaf
   con: MainController
   ser: TaskService
   re: TaskRepository
-  get(list): {
+  조회: {
     con -> ser: getList()
     ser -> re : findAll()
     re -> ser 
     ser -> con: taskList
     con -> th: model+taskList
   }
-  post(create):{
+  만들기:{
     con -> ser : createTask()
     ser -> re : create()
   }
