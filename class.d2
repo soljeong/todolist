@@ -1,0 +1,31 @@
+Task {
+    shape : class
+
+    -id
+    -item
+    -status
+    -createdDate
+}
+
+TaskRepository {
+    shape : class
+
+    findAll()
+}
+
+MainController {
+    shape : class
+
+    -taskService
+    list()
+    creatTask()
+    
+}
+
+TaskService {
+    shape : class
+
+    -taskRepository
+    getList()
+    create()
+}
