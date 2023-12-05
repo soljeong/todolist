@@ -60,12 +60,14 @@
                 <td th:text="${task.status} ? 'Completed' : 'In progress'"></td>
                 <td th:text="${task.createdDate}"></td>
                 <td>
-                    <button class="btn btn-danger">
-                        Delete
-                    </button>
-                    <button class="btn btn-success">
+                  <button class="btn btn-danger">
+                    Delete
+                  </button>
+                  <form th:action="@{|/modify/${task.id}|}" method="get">
+                    <button type="submit" class="btn btn-success">
                         Finished
                     </button>
+                  </form>
                 </td>
             </tr>
         </tbody>

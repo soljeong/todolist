@@ -23,6 +23,12 @@ public class TaskService {
         task.setItem(item);
         task.setCreatedDate(LocalDateTime.now());
         this.taskRepository.save(task);
-
     }
+
+    public void modify(Integer id) {
+        Task task = this.taskRepository.findById(id).orElseThrow();
+        task.setStatus(true);
+        this.taskRepository.save(task);
+    }
+
 }
